@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 //DOM
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { useHistory, withRouter } from "react-router-dom";
+import { useHistory, withRouter, Link } from "react-router-dom";
 //MUI
 import { makeStyles } from "@material-ui/core/styles";
 import FormControl from "@material-ui/core/FormControl";
@@ -25,38 +25,29 @@ function SimpleSubmit() {
   const API_KEY = process.env.REACT_APP_API_KEY;
   const defaultHeaders = { Authorization: "Bearer " + API_KEY };
 
-  const printResponseStatus = rsp => {
-    console.log(`response: [${rsp.status}] ${rsp.statusText}`);
-  };
-
-  const [data, setData] = useState({
-    cardNumber: "",
-    accountData: ""
-  });
-
   let history = useHistory();
-
+  const [data, setData] = useState({
+    cardNumber: ""
+  });
+  useEffect(() => {
+    fetchInfo;
+  });
   function handleSubmit(e) {
     e.preventDefault();
-    let res;
-    axios
 
-      .post(`${BASE_URL}/store-cards/unknown?number=${data.cardNumber}`, {
-        headers: { ...defaultHeaders, "Content-Type": "application/json" },
-        body: JSON.stringify({ pin: "" })
-      })
-      .then(res => {
-        if (res.status === 200) {
-          console.log(res.status, res.data);
-          let url = res.data.id;
-          //history.push(url) // reference https://dev.to/brad_beggs/handling-react-form-submit-with-redirect-async-await-for-the-beyond-beginner-57of
-          history.push(`/dashboard/:id/${url}`);
+    const fetchInfo = async () => {
+      const info = await fetch(
+        `${BASE_URL}/store-cards/unknown?number=${data.cardNumber}`,
+        {
+          method: "POST",
+          headers: { ...defaultHeaders, "Content-Type": "application/json" },
+          body: JSON.stringify({ pin: "" })
         }
-      })
-      .catch(error => {
-        console.log(error);
-      });
-    return res;
+      );
+
+      const storeCard = await info.json();
+      console.log(storeCard);
+    };
   }
 
   function handleChange(e) {
@@ -77,6 +68,7 @@ function SimpleSubmit() {
           placeholder="card number here"
           type="number"
         />
+
         <button>Submit</button>
       </form>
     </div>

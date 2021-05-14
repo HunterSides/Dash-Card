@@ -5,7 +5,8 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
-
+import Link from "@material-ui/core/Link";
+import { Redirect, useHistory, withRouter } from "react-router-dom";
 import logotwo from "../assets/images/DashVector.svg";
 const useStyles = makeStyles(theme => ({
   root: {
@@ -20,9 +21,7 @@ const useStyles = makeStyles(theme => ({
   },
   home: {
     color: "#008DE4",
-    fontFamily: "Poppins",
-    width: "100%",
-    maxWidth: 210
+    fontFamily: "Poppins"
   },
 
   about: {
@@ -43,26 +42,26 @@ export default function Header() {
 
   return (
     <div className={classes.root}>
-      <Grid item container xs={12} sm={12} md={8}>
-        <Grid item>
+      <Grid item container>
+        <Grid item xs={12} sm={12} md={10} lg={10}>
           <img src={logotwo} alt="logo" className={classes.logo} />
-        </Grid>
-        <Grid item>
+
           <Button className={classes.home}>Home</Button>
-        </Grid>
-        <Grid item>
+
           <Button className={classes.about}>About</Button>
         </Grid>
 
-        <Grid item justify="right">
-          <Button
-            className={classes.help}
-            variant="contained"
-            href=""
-            disableElevation
-          >
-            Log Out
-          </Button>
+        <Grid item>
+          <Link href="/" onClick={Redirect}>
+            <Button
+              className={classes.help}
+              variant="contained"
+              href=""
+              disableElevation
+            >
+              Log Out
+            </Button>
+          </Link>
         </Grid>
       </Grid>
     </div>
