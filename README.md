@@ -17,8 +17,10 @@ Open a terminal and run the following commands
 This should open the application in your browser on localhost:3000
 To see the dashboard open localhost:3000/dashboard-example
 
-Below are images of the applications Pin Overlay, LandingPage and Dashboard
+Below are images of the applications LandingPage, Pin Overlay and Dashboard
 
 ![Alt text](./images/LandingPage.png?raw=true "Landing Page")
+
 ![Alt text](./images/pinOverlay.png?raw=true "Pin Overlay")
+
 ![Alt text](./images/DashboardExample.png?raw=true "Dashboard")
