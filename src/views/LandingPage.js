@@ -23,37 +23,37 @@ import axios from "axios";
 
 require("dotenv").config();
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
-    flexGrow: 1
+    flexGrow: 1,
   },
   margin: {
     margin: theme.spacing(1),
-    width: "90%"
+    width: "90%",
   },
   backdrop: {
     zIndex: theme.zIndex.drawer + 1,
-    color: "#fff"
+    color: "#fff",
   },
   content: {
     color: "#1E266D",
     fontFamily: "Poppins",
-    flexGrow: 1
+    flexGrow: 1,
   },
   subcontent: {
-    color: "#455880"
+    color: "#455880",
   },
   paper: {
     padding: theme.spacing(5),
     textAlign: "center",
-    color: theme.palette.text.secondary
+    color: theme.palette.text.secondary,
   },
   iconButton: {
-    padding: 10
+    padding: 10,
   },
   logo: {
     width: 190,
-    height: 25
+    height: 25,
   },
   verifyButton: {
     margin: theme.spacing(1),
@@ -62,49 +62,49 @@ const useStyles = makeStyles(theme => ({
     color: "#FFFFFF",
     height: 38,
     borderRadius: 2,
-    fontSize: 11
+    fontSize: 11,
   },
 
   dashMidGrey: {
-    color: "#7F8C98"
+    color: "#7F8C98",
   },
   dashDarkGray: {
-    color: "#787878"
+    color: "#787878",
   },
   dashBlack: {
-    color: "#111921"
+    color: "#111921",
   },
   dashBlue: {
-    color: "#008DE4"
+    color: "#008DE4",
   },
   disabled: {
-    color: "A6A6A6"
+    color: "A6A6A6",
   },
   dashWhite: {
-    color: "white"
-  }
+    color: "white",
+  },
 }));
 
 const CssTextField = withStyles({
   root: {
     "& label.Mui-focused": {
-      color: "#7F8C98"
+      color: "#7F8C98",
     },
     "& .MuiInput-underline:after": {
-      borderBottomColor: "#7F8C98"
+      borderBottomColor: "#7F8C98",
     },
     "& .MuiOutlinedInput-root": {
       "& fieldset": {
-        borderColor: "#7F8C98"
+        borderColor: "#7F8C98",
       },
       "&:hover fieldset": {
-        borderColor: "#008DE4"
+        borderColor: "#008DE4",
       },
       "&.Mui-focused fieldset": {
-        borderColor: "#008DE4"
-      }
-    }
-  }
+        borderColor: "#008DE4",
+      },
+    },
+  },
 })(TextField);
 
 function LandingPage() {
@@ -113,7 +113,7 @@ function LandingPage() {
   const defaultHeaders = { Authorization: "Bearer " + API_KEY };
   const [data, setData] = useState({
     cardNumber: "",
-    pinNumber: ""
+    pinNumber: "",
   });
   const [open, setOpen] = React.useState(false);
   const classes = useStyles();
@@ -127,23 +127,23 @@ function LandingPage() {
         `${BASE_URL}/store-cards/unknown?number=${data.cardNumber}&pin${data.pinNumber}`,
         {
           headers: { ...defaultHeaders, "Content-Type": "application/json" },
-          body: JSON.stringify({ pin: data.pinNumber })
+          body: JSON.stringify({ pin: data.pinNumber }),
         }
       )
-      .then(res => {
+      .then((res) => {
         if (res.status === 200) {
           console.log(res.status, res.data);
 
           let url = res.data.depositUrl;
           history.push({
             pathname: `/dashboard/:id/${url}`,
-            cardInfo: res.data
+            cardInfo: res.data,
           });
         }
       })
 
-      .catch(error => {
-        if (error.response.status === 401) {
+      .catch((error) => {
+        if (error.res.status === 401) {
           setOpen(!open);
           console.log(`Response Error: Pin required `);
         } else if (error.response.status === 404) {
@@ -195,10 +195,10 @@ function LandingPage() {
                 </ul>
               </div>
               <div className="submitForm">
-                <form onSubmit={e => handleSubmit(e)}>
+                <form onSubmit={(e) => handleSubmit(e)}>
                   <CssTextField
                     className={classes.margin}
-                    onChange={e => handleChange(e)}
+                    onChange={(e) => handleChange(e)}
                     id="cardNumber"
                     value={data.cardNumber}
                     label="Enter card number"
@@ -212,7 +212,7 @@ function LandingPage() {
                         >
                           <SearchIcon />
                         </IconButton>
-                      )
+                      ),
                     }}
                   />
                 </form>
@@ -240,10 +240,10 @@ function LandingPage() {
                   <h4>Please Enter your PIN to continue</h4>
                 </Grid>
                 <Grid item>
-                  <form onSubmit={e => handleSubmit(e)}>
+                  <form onSubmit={(e) => handleSubmit(e)}>
                     <CssTextField
                       className={classes.margin}
-                      onChange={e => handleChange(e)}
+                      onChange={(e) => handleChange(e)}
                       inputProps={{ maxLength: 6 }}
                       id="pinNumber"
                       value={data.pinNumber}
