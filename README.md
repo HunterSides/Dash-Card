@@ -19,8 +19,13 @@ To see the dashboard open localhost:3000/dashboard-example
 
 Below are images of the applications LandingPage, Pin Overlay and Dashboard
 
+LandingPage
 ![Alt text](./images/LandingPage.png?raw=true "Landing Page")
 
+
+Pin Overlay
 ![Alt text](./images/pinOverlay.png?raw=true "Pin Overlay")
 
+
+Dashboard
 ![Alt text](./images/DashboardExample.png?raw=true "Dashboard")
