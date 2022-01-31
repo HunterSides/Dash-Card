@@ -1,6 +1,6 @@
 [DEPRECATED]
 
-Dash Card is a simple web app utilizing the Dash Retail API to allow Dash Card users to simply view theirDash Card account information including:
+Dash Card is a simple web app utilizing the Dash Retail API to allow Dash Card users to easily view their Dash Card account information including:
 
     - Deposits and Withdraws
     - Account Balance
