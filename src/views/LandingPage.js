@@ -12,11 +12,11 @@ import { CssBaseline, Paper } from "@material-ui/core";
 import { Grid } from "@material-ui/core";
 import Backdrop from "@material-ui/core/Backdrop";
 import TextField from "@material-ui/core/TextField";
-import Divider from "@material-ui/core/Divider";
+
 import IconButton from "@material-ui/core/IconButton";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import SearchIcon from "@material-ui/icons/Search";
-import InputBase from "@material-ui/core/InputBase";
+
 import Button from "@material-ui/core/Button";
 
 import axios from "axios";
@@ -226,7 +226,11 @@ function LandingPage() {
             Show backdrop
           </Button>
 
-          <Backdrop className={classes.backdrop} open={open}>
+          <Backdrop
+            className={classes.backdrop}
+            open={open}
+            onClick={handleClose}
+          >
             <Grid item container justify="center" xs={6} sm={6} md={8} lg={8}>
               <Paper className={classes.paper} elevation={0} square>
                 <Grid item>

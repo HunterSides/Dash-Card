@@ -1,43 +1,33 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import QRcode from "qrcode.react";
-import Redirect from "react-router-dom";
+
 import { useLocation } from "react-router-dom";
-import {
-  Container,
-  Divider,
-  AppBar,
-  Typography,
-  Grow,
-  Grid,
-  Box,
-  Paper
-} from "@material-ui/core";
+import { Grid, Box } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import GraphicFrame from "../assets/images/GraphicFrame.svg";
 import DashBoardHeader from "../components/DashBoardHeader";
-import transitions from "@material-ui/core/styles/transitions";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
-    flexGrow: 1
+    flexGrow: 1,
   },
   content: {
     color: "#1E266D",
     fontFamily: "Poppins",
-    flexGrow: 1
+    flexGrow: 1,
   },
   subcontent: {
-    color: "#455880"
+    color: "#455880",
   },
   paper: {
     padding: theme.spacing(1),
     borderRadius: 30,
-    borderColor: "#111921"
+    borderColor: "#111921",
   },
   logo: {
-    flexGrow: 1
-  }
+    flexGrow: 1,
+  },
 }));
 
 export default function Dashboard() {

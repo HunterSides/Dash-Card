@@ -1,40 +1,37 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
 import Link from "@material-ui/core/Link";
 import { Redirect, useHistory, withRouter } from "react-router-dom";
 import logotwo from "../assets/images/DashVector.svg";
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
-    flexGrow: 1
+    flexGrow: 1,
   },
 
   logo: {
     width: "100%",
     maxWidth: 210,
     paddingTop: 5,
-    paddingLeft: 15
+    paddingLeft: 15,
   },
   home: {
     color: "#008DE4",
-    fontFamily: "Poppins"
+    fontFamily: "Poppins",
   },
 
   about: {
     color: "#787878",
-    fontFamily: "Poppins"
+    fontFamily: "Poppins",
   },
 
   help: {
     backgroundColor: "#008DE4",
     color: "white",
     width: "100%",
-    maxWidth: 210
-  }
+    maxWidth: 210,
+  },
 }));
 
 export default function Header() {

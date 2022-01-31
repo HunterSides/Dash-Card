@@ -1,22 +1,11 @@
 import React from "react";
-import { useState, useEffect } from "react";
+
 import QRcode from "qrcode.react";
-import Redirect from "react-router-dom";
-import { useLocation } from "react-router-dom";
-import {
-  Container,
-  Divider,
-  AppBar,
-  Typography,
-  Grow,
-  Grid,
-  Box,
-  Paper,
-} from "@material-ui/core";
+
+import { Grid, Box } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import GraphicFrame from "../assets/images/GraphicFrame.svg";
 import DashBoardHeader from "../components/DashBoardHeader";
-import transitions from "@material-ui/core/styles/transitions";
 
 const useStyles = makeStyles((theme) => ({
   root: {
